@@ -78,6 +78,34 @@ void addRandomCoffeeCustomer(CoffeeCustomerNode*& head, CoffeeCustomerNode*& tai
     enqueueCoffee(head, tail, coffeeNames[nameIndex], coffeeDrinks[drinkIndex]);
 }
 
+const int NUM_MUFFIN_NAMES =5;
+const int NUM_MUFFIN_TYPES = 5;
+
+string muffinNames[NUM_MUFFIN_NAMES] = {"Frank", "Grace", "Hank", "Ivy", "Jack"};
+
+string muffinTypes[NUM_MUFFIN_TYPES] = {"Blueberry", "Chocolate Chip", "Banana Nut", "Lemon Poppy Seed", "Bran"};
+
+void addRandomMuffinCustomer(deque<string>& muffinQueue){
+    int nameIndex = rand() % NUM_MUFFIN_NAMES;
+    int typeIndex = rand() % NUM_MUFFIN_TYPES;
+
+    string customer = muffinNames[nameIndex] + string (" - ") + muffinTypes[typeIndex];
+    muffinQueue.push_back(customer);
+}
+
+void printMuffinQueue(const deque<string>& muffinQueue){
+     cout << "[Muffin Queue]: ";
+     if(muffinQueue.empty()){
+         cout << "Empty";
+     } else{
+         for(size_t i=0; i< muffinQueue.size();++1){
+             cout << "(" << muffinQueue[i] << ")";
+             if(i != muffinQueue.size())
+                 cout << "-> ";
+         }
+     }
+    cout << endl;
+}
 int main(){
     srand(static_cast<unsigned int>(time(nullptr)));
 

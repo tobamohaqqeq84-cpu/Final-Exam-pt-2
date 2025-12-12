@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <deque>
 using namespace std;
 
 struct CoffeeCustomerNode{

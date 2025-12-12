@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <deque>
+#include <vector>
 using namespace std;
 
 struct CoffeeCustomerNode{
@@ -78,24 +79,24 @@ void addRandomCoffeeCustomer(CoffeeCustomerNode*& head, CoffeeCustomerNode*& tai
     enqueueCoffee(head, tail, coffeeNames[nameIndex], coffeeDrinks[drinkIndex]);
 }
 
-const int NUM_MUFFIN_NAMES =5;
-const int NUM_MUFFIN_TYPES = 5;
+const int NUM_BRACELET_NAMES =5;
+const int NUM_BRACELET_TYPES = 5;
 
-string muffinNames[NUM_MUFFIN_NAMES] = {"Frank", "Grace", "Hank", "Ivy", "Jack"};
+string muffinNames[ NUM_BRACELET_TYPES] = {"Frank", "Grace", "Hank", "Ivy", "Jack"};
 
-string muffinTypes[NUM_MUFFIN_TYPES] = {"Blueberry", "Chocolate Chip", "Banana Nut", "Lemon Poppy Seed", "Bran"};
+string muffinTypes[ NUM_BRACELET_TYPES] = {"Blueberry", "Chocolate Chip", "Banana Nut", "Lemon Poppy Seed", "Bran"};
 
 void addRandomMuffinCustomer(deque<string>& muffinQueue){
-    int nameIndex = rand() % NUM_MUFFIN_NAMES;
-    int typeIndex = rand() % NUM_MUFFIN_TYPES;
+    int nameIndex = rand() %  NUM_BRACELET_TYPES;
+    int typeIndex = rand() %  NUM_BRACELET_TYPES;
 
-    string customer = muffinNames[nameIndex] + string (" - ") + muffinTypes[typeIndex];
-    muffinQueue.push_back(customer);
+    string customer = braceletNames[nameIndex] + string (" - ") + braceletNames[typeIndex];
+    braceletNames.push_back(customer);
 }
 
-void printMuffinQueue(const deque<string>& muffinQueue){
-     cout << "[Muffin Queue]: ";
-     if(muffinQueue.empty()){
+void printBraceletQueue(const vector<string>& braceletQueue){
+     cout << "[Bracelet Queue]: ";
+     if(braceletQueue.empty()){
          cout << "Empty";
      } else{
          for(size_t i =0; i< muffinQueue.size();++i){

@@ -12,7 +12,7 @@ CoffeeCustomerNode* next;
 };
 
 void enqueueCoffee(CoffeeCustomerNode*& head, CoffeeCustomerNode*& tail, const string& name, const string& drink){
-    coffeeCustomer* newNode = new CoffeeCustomerNode{name, drink, nullptr};
+    CoffeeCustomerNode* newNode = new CoffeeCustomerNode{name, drink, nullptr};
 
      if(tail == nullptr){
          head = tail = newNode;
@@ -22,11 +22,13 @@ void enqueueCoffee(CoffeeCustomerNode*& head, CoffeeCustomerNode*& tail, const s
          tail = newNode;
     }
 }
-bool dequque(CoffeeCustomerNode*& head, CoffeeCustomerNode*& tail, string& servedName, string& servedDrink){
+bool dequeueCoffee(CoffeeCustomerNode*& head, CoffeeCustomerNode*& tail, string& servedName, string& servedDrink){
+    
      if(head == nullptr){
          return false;
      }
-    coffeeCustomerNode* temp = head;
+    
+    CoffeeCustomerNode* temp = head;
     servedName = head->name;
     servedDrink = head->drink;
 
@@ -89,7 +91,7 @@ int main(){
     printCoffeeQueue(coffeeHead);
 
     string name, drink;
-    if(endequeueCoffee(coffeeHead, coffeeTail, name, drink)){
+    if(dequeueCoffee(coffeeHead, coffeeTail, name, drink)){
          cout << "Served customer:" << name << "(" << drink << ")|n";
 
     }
@@ -97,7 +99,7 @@ int main(){
     printCoffeeQueue(coffeeHead);
 
     while (!isCoffeeQueueEmpty(coffeeHead)){
-        endequeueCoffee(coffeeHead, coffeeTail, name, drink);
+        dequeueCoffee(coffeeHead, coffeeTail, name, drink);
     }
     return 0;
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <ctime>
 using namespace std;
 
 struct CoffeeCustomerNode{
@@ -77,5 +78,26 @@ void addRandomCoffeeCustomer(CoffeeCustomerNode*& head, CoffeeCustomerNode*& tai
 int main(){
     srand(static_cast<unsigned int>(time(nullptr)));
 
-    
+    CoffeeCustomerNode* coffeeHead = nullptr;
+     CoffeeCustomerNode* coffeeTail = nullptr;
+
+    addRandomCoffeeCustomer(coffeeHead, coffeeTail);
+    addRandomCoffeeCustomer(coffeeHead, coffeeTail);
+    addRandomCoffeeCustomer(coffeeHead, coffeeTail);
+
+    cout << "Initial coffee queue: " << endl;
+    printCoffeeQueue(coffeeHead);
+
+    string name, drink;
+    if(endequeueCoffee(coffeeHead, coffeeTail, name, drink)){
+         cout << "Served customer:" << name << "(" << drink << ")|n";
+
+    }
+    cout << "Queue after serving one customer: " << endl;
+    printCoffeeQueue(coffeeHead);
+
+    while (!isCoffeeQueueEmpty(coffeeHead)){
+        endequeueCoffee(coffeeHead, coffeeTail, name, drink);
+    }
+    return 0;
 }

@@ -158,10 +158,11 @@ int main(){
             muffinQueue.pop_front();
         }else{
              cout << "No muffin customers to serve (queue is empty).\n";
+        }
             printMuffinQueue(muffinQueue);
              cout << "----------------------\n";
             
-        }
+        
     }
     string name, drink;
     while (!isCoffeeQueueEmpty(coffeeHead)){
@@ -169,4 +170,4 @@ int main(){
     }
     
     return 0;
-}// milestone 1
+}// milestone 3

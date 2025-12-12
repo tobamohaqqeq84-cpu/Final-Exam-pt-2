@@ -107,27 +107,13 @@ int main(){
         else{
              cout << "No customers to serve(queue is empty).\n";
         }
-        printCoffee
+        printCoffeeQueue(coffeeHead);
+        cout << "----------------------\n";
     }
-    
-
-    addRandomCoffeeCustomer(coffeeHead, coffeeTail);
-    addRandomCoffeeCustomer(coffeeHead, coffeeTail);
-    addRandomCoffeeCustomer(coffeeHead, coffeeTail);
-
-    cout << "Initial coffee queue: " << endl;
-    printCoffeeQueue(coffeeHead);
-
     string name, drink;
-    if(dequeueCoffee(coffeeHead, coffeeTail, name, drink)){
-         cout << "Served customer:" << name << "(" << drink << ")|n";
-
-    }
-    cout << "Queue after serving one customer: " << endl;
-    printCoffeeQueue(coffeeHead);
-
     while (!isCoffeeQueueEmpty(coffeeHead)){
         dequeueCoffee(coffeeHead, coffeeTail, name, drink);
     }
+    
     return 0;
 }// milestone 1

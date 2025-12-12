@@ -4,6 +4,8 @@
 #include <ctime>
 #include <deque>
 #include <vector>
+#include <stack>
+
 using namespace std;
 
 struct CoffeeCustomerNode{
@@ -131,6 +133,35 @@ void printBraceletQueue(const vector<string>& braceletQueue){
      }
     cout << endl;
 }
+
+const int NUM_STICKER_NAMES = 5;
+const int NUM_STICKER_TYPES = 5;
+string stickerNames[NUM_STICKER_NAMES] = {"Paul", "Quinn", "Rachel", "Steve", "Tina"};
+string stickerTypes[NUM_STICKER_TYPES] = {"Animal", "Movie", "Sports", "Music", "Food"};
+
+void addRandomStickerCustomer(stack<string>& stickerStack){
+    int nameIndex = rand() % NUM_STICKER_NAMES;
+    int typeIndex = rand() % NUM_STICKER_TYPES;
+    string customer = stickerNames[nameIndex] + string(" - ") + stickerTypes[typeIndex];
+    stickerStack.push(customer);
+}
+void printStickerStack( stack<string>& stickerStack){
+     cout << "[Sticker Stack]: ";
+     if(stickerStack.empty()){
+         cout << "Empty";
+     }
+     else{
+         bool first = true;
+         while(!stickerStack.empty()){
+             if (!first)
+                 cout << "-> ";
+             cout << "(" << stickerStack.top() << ")";
+             stickerStack.pop();
+             first = false;
+         }
+     }
+     cout << endl;
+}
 int main(){
     srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -139,6 +170,7 @@ int main(){
 
     deque<string> muffinQueue;
     vector<string> braceletQueue;
+    stack<string> stickerStack;
 
     for (int i = 0; i < 3; ++i){
         addRandomCoffeeCustomer(coffeeHead, coffeeTail);
@@ -211,4 +243,4 @@ int main(){
     }
     
     return 0;
-}// milestone 3
+}// milestone 4

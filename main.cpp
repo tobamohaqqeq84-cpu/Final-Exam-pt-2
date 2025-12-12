@@ -83,6 +83,34 @@ int main(){
     CoffeeCustomerNode* coffeeHead = nullptr;
      CoffeeCustomerNode* coffeeTail = nullptr;
 
+    for (int i = 0; i < 3; ++i){
+        addRandomCoffeeCustomer(coffeeHead, coffeeTail);
+    }
+    cout << "Initial coffee queue:\n ";
+    
+    printCoffeeQueue(coffeeHead);
+    cout << "----------------------\n";
+    for(int round = 1; round <= 10; ++round){
+        cout << "=== Round " << round << " ===\n";
+
+        int joined = rand() % 2;
+        if (joined == 1){
+            addRandomCoffeeCustomer(coffeeHead, coffeeTail);
+                cout << "A new coffee customer joined the queue.\n";  
+        } else {
+             cout << "No new coffee customer joined the queue.\n";
+        }
+
+        string name, drink;
+        if (dequeueCoffee(coffeeHead, coffeeTail, name, drink)){
+             cout << "Served customer: " << name << " (" << drink << ")\n"; }
+        else{
+             cout << "No customers to serve(queue is empty).\n";
+        }
+        printCoffee
+    }
+    
+
     addRandomCoffeeCustomer(coffeeHead, coffeeTail);
     addRandomCoffeeCustomer(coffeeHead, coffeeTail);
     addRandomCoffeeCustomer(coffeeHead, coffeeTail);

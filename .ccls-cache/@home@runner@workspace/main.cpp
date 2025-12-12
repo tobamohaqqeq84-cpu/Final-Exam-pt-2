@@ -98,9 +98,9 @@ void printMuffinQueue(const deque<string>& muffinQueue){
      if(muffinQueue.empty()){
          cout << "Empty";
      } else{
-         for(size_t i=0; i< muffinQueue.size();++1){
+         for(size_t i =0; i< muffinQueue.size();++i){
              cout << "(" << muffinQueue[i] << ")";
-             if(i != muffinQueue.size())
+             if(i+1 != muffinQueue.size())
                  cout << "-> ";
          }
      }
@@ -112,18 +112,24 @@ int main(){
     CoffeeCustomerNode* coffeeHead = nullptr;
      CoffeeCustomerNode* coffeeTail = nullptr;
 
+    deque<string> muffinQueue;
+
     for (int i = 0; i < 3; ++i){
         addRandomCoffeeCustomer(coffeeHead, coffeeTail);
     }
+    
     cout << "Initial coffee queue:\n ";
     
     printCoffeeQueue(coffeeHead);
     cout << "----------------------\n";
+
+    
     for(int round = 1; round <= 10; ++round){
         cout << "=== Round " << round << " ===\n";
 
-        int joined = rand() % 2;
-        if (joined == 1){
+        int coffeeJoined = rand() % 2;
+        if (coffeeJoined == 1){
+            
             addRandomCoffeeCustomer(coffeeHead, coffeeTail);
                 cout << "A new coffee customer joined the queue.\n";  
         } else {
@@ -131,13 +137,31 @@ int main(){
         }
 
         string name, drink;
+        
         if (dequeueCoffee(coffeeHead, coffeeTail, name, drink)){
              cout << "Served customer: " << name << " (" << drink << ")\n"; }
         else{
              cout << "No customers to serve(queue is empty).\n";
         }
+        
         printCoffeeQueue(coffeeHead);
-        cout << "----------------------\n";
+
+        int muffinJoined = rand() % 2;
+        if (muffinJoined == 1){
+            addRandomMuffinCustomer(muffinQueue);
+            cout << "A new muffin customer joined the queue.\n";
+        }else {
+             cout << "No new muffin customer joined the queue.\n";
+        }
+        if (!muffinQueue.empty()){
+            cout << "Served muffin customer: " << muffinQueue.front() << endl;
+            muffinQueue.pop_front();
+        }else{
+             cout << "No muffin customers to serve (queue is empty).\n";
+            printMuffinQueue(muffinQueue);
+             cout << "----------------------\n";
+            
+        }
     }
     string name, drink;
     while (!isCoffeeQueueEmpty(coffeeHead)){

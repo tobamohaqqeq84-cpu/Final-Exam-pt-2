@@ -145,7 +145,7 @@ void addRandomStickerCustomer(stack<string>& stickerStack){
     string customer = stickerNames[nameIndex] + string(" - ") + stickerTypes[typeIndex];
     stickerStack.push(customer);
 }
-void printStickerStack( stack<string>& stickerStack){
+void printStickerStack( stack<string> stickerStack){
      cout << "[Sticker Stack]: ";
      if(stickerStack.empty()){
          cout << "Empty";

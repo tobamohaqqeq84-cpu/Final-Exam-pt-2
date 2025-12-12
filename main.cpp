@@ -233,9 +233,25 @@ int main(){
              cout << "No bracelet customers to serve (queue is empty).\n";
         }
          printBraceletQueue(braceletQueue);
-             cout << "----------------------\n";
             
+            
+         int stickerJoined = rand() % 2;
+         if (stickerJoined == 1){
+             addRandomStickerCustomer(stickerStack);
+             cout << "A new sticker customer joined the stack.\n";
+                } else{
+                cout << "No new sticker customer joined the stack.\n";
+                }
+         if (!stickerStack.empty()){
+             cout << "Served sticker customer: " << stickerStack.top() << endl;
+             stickerStack.pop();
+             } else{
+             cout << "No sticker customers to serve (stack is empty).\n";
+             }
+        printStickerStack(stickerStack);
         
+        
+     cout << "----------------------\n";
     }
     string name, drink;
     while (!isCoffeeQueueEmpty(coffeeHead)){

@@ -80,20 +80,43 @@ void addRandomCoffeeCustomer(CoffeeCustomerNode*& head, CoffeeCustomerNode*& tai
 }
 
 const int NUM_MUFFIN_NAMES =5;
-const int NUM_MUFFIN_NAMES = 5;
+const int NUM_MUFFIN_TYPES = 5;
 
 string muffinNames[ NUM_MUFFIN_NAMES] = {"Frank", "Grace", "Hank", "Ivy", "Jack"};
 
-string muffinTypes[NUM_MUFFIN_NAMES ] = {"Blueberry", "Chocolate Chip", "Banana Nut", "Lemon Poppy Seed", "Bran"};
+string muffinTypes[NUM_MUFFIN_TYPES ] = {"Blueberry", "Chocolate Chip", "Banana Nut", "Lemon Poppy Seed", "Bran"};
 
 void addRandomMuffinCustomer(deque<string>& muffinQueue){
     int nameIndex = rand() %  NUM_MUFFIN_NAMES;
     int typeIndex = rand() % NUM_MUFFIN_NAMES;
 
-    string customer = muffinNames[nameIndex] + string (" - ") + muffinNames[typeIndex];
-    muffinNames.push_back(customer);
+    string customer = muffinNames[nameIndex] + " - " + muffinTypes[typeIndex];
+    muffinQueue.push_back(customer);
 }
+void printMuffinQueue(const deque<string>& muffinQueue){
+     cout << "[Muffin Queue]: ";
+     if(muffinQueue.empty()){
+         cout << "Empty";}
+    else{
+        for(size_t i = 0; i < muffinQueue.size(); ++i){
+            cout << "(" << muffinQueue[i] << ")";
+            if(i+1 != muffinQueue.size())
+                 cout << "-> ";
+        }
+    }
+    
 
+const int NUM_BRACELET_NAMES = 5;
+const int NUM_BRACELET_TYPES = 5;
+
+string braceletNames[NUM_BRACELET_NAMES] = {"Karen", "Leo", "Mona", "Nina", "Oscar"};
+string braceletTypes[NUM_BRACELET_TYPES]= {"Silver", "Gold", "Pearl", "Crystal", "Wooden"};
+void addRandomBraceletCustomer(vector<string>& braceletQueue){
+    int nameIndex = rand() % NUM_BRACELET_NAMES;
+    int typeIndex = rand() % NUM_BRACELET_TYPES;
+    string customer = braceletNames[nameIndex] + string(" - ") + braceletTypes[typeIndex];
+    braceletQueue.push_back(customer);
+}
 void printBraceletQueue(const vector<string>& braceletQueue){
      cout << "[Bracelet Queue]: ";
      if(braceletQueue.empty()){

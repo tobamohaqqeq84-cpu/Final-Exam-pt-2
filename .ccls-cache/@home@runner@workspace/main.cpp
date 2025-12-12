@@ -56,3 +56,26 @@ void printCoffeeQueue(CoffeeCustomerNode* head){
     }
     cout << endl;
 }
+
+const int NUM_NAMES = 5;
+const int NUM_DRINKS = 5;
+
+string coffeeNames [NUM_NAMES] = {"Alice", "Bob", "Charlie", "David", "Eve"
+};
+
+string coffeeDrinks [NUM_DRINKS] = {
+    "Latte", "Cappuccino", "Espresso", "Americano","Mocha" 
+     };
+
+void addRandomCoffeeCustomer(CoffeeCustomerNode*& head, CoffeeCustomerNode*& tail){
+    int nameIndex = rand() % NUM_NAMES;
+    int drinkIndex = rand() % NUM_DRINKS;
+
+    enqueueCoffee(head, tail, coffeeNames[nameIndex], coffeeDrinks[drinkIndex]);
+}
+
+int main(){
+    srand(static_cast<unsigned int>(time(nullptr)));
+
+    
+}

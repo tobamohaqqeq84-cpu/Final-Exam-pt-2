@@ -88,7 +88,7 @@ string muffinTypes[NUM_MUFFIN_TYPES ] = {"Blueberry", "Chocolate Chip", "Banana 
 
 void addRandomMuffinCustomer(deque<string>& muffinQueue){
     int nameIndex = rand() %  NUM_MUFFIN_NAMES;
-    int typeIndex = rand() % NUM_MUFFIN_NAMES;
+    int typeIndex = rand() % NUM_MUFFIN_TYPES;
 
     string customer = muffinNames[nameIndex] + " - " + muffinTypes[typeIndex];
     muffinQueue.push_back(customer);
@@ -104,7 +104,8 @@ void printMuffinQueue(const deque<string>& muffinQueue){
                  cout << "-> ";
         }
     }
-    
+    cout << endl;
+}
 
 const int NUM_BRACELET_NAMES = 5;
 const int NUM_BRACELET_TYPES = 5;
